@@ -225,7 +225,7 @@
             </svg>
           </div>
           <div>
-            <h4 class="font-heading font-bold text-slate-900">Certified Saftey</h4>
+            <h4 class="font-heading font-bold text-slate-900">Certified Safety</h4>
             <p class="text-xs text-slate-500">Sterilized, single-use, barcoded kits</p>
           </div>
         </div>
@@ -371,7 +371,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="space-y-1">
                 <label class="text-xs font-bold text-slate-600">Full Name</label>
-                <input type="text" id="patient-name" placeholder="John Doe" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
+                <input type="text" id="patient-name" placeholder="Ahmed Raza" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
               </div>
               <div class="space-y-1">
                 <label class="text-xs font-bold text-slate-600">Phone Number</label>
@@ -499,7 +499,7 @@
         <!-- Dynamic Output Loading State -->
         <div id="report-loading" class="hidden py-16 text-center space-y-4">
           <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-slate-300 border-t-brand-600"></div>
-          <p class="text-slate-500 text-sm font-semibold">Decrypting laboratory files and digital signatures...</p>
+          <p class="text-slate-500 text-sm font-semibold">Decrypting laboratory files and system records...</p>
         </div>
 
         <!-- Dynamic Output Default State -->
@@ -529,8 +529,8 @@
                 </svg>
               </div>
               <div>
-                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100 block text-center">CERTIFIED</span>
-                <span class="text-[9px] text-slate-400">Authentic Digital Sign</span>
+                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100 block text-center">VERIFIED</span>
+                <span class="text-[9px] text-slate-400">System Generated</span>
               </div>
             </div>
           </div>
@@ -539,7 +539,7 @@
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-b border-slate-200 text-xs">
             <div>
               <p class="text-slate-400 font-medium">Patient Name:</p>
-              <p class="font-bold text-slate-900" id="rep-patient-name">Arthur Pendragon</p>
+              <p class="font-bold text-slate-900" id="rep-patient-name">Salman Ahmed</p>
             </div>
             <div>
               <p class="text-slate-400 font-medium">Age / Gender:</p>
@@ -578,22 +578,22 @@
 
           <!-- Pathologist Remarks -->
           <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1">
-            <h6 class="font-bold text-slate-800">Chief Pathologist Comments:</h6>
+            <h6 class="font-bold text-slate-800">System Remarks:</h6>
             <p class="text-slate-600 italic" id="rep-pathologist-remarks">"All evaluated indicators align with physiological baselines. Minor elevation in Glucose (Fasting) might indicate dietary intake profiles. Recommend clinical correlation."</p>
           </div>
 
           <!-- Signatures Footer -->
           <div class="pt-8 flex justify-between items-end border-t border-slate-200 mt-8">
             <div class="text-[10px] text-slate-400">
-              <p>Printed on: June 11, 2026 05:51 AM</p>
+              <p>Printed on: June 11, 2026 06:51 AM</p>
               <p>System Ver: DH-LAB-CLOUD_10.4</p>
             </div>
-            <div class="text-center space-y-1">
-              <div class="w-24 h-10 border-b border-slate-300 mx-auto flex items-center justify-center text-xs text-brand-600 font-bold tracking-tight italic">
-                Dr. R. Vance
-              </div>
-              <p class="text-[10px] font-bold text-slate-800">Dr. Robert Vance, MD</p>
-              <p class="text-[9px] text-slate-400">Senior Pathology Director</p>
+            
+            <!-- Computer Generated Disclaimer -->
+            <div class="text-right space-y-1 bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <p class="text-[10px] font-bold text-slate-800 uppercase tracking-widest">Electronically Verified</p>
+              <p class="text-[9px] text-slate-500 font-medium">This is a computer-generated report.</p>
+              <p class="text-[9px] text-slate-500 font-medium">No physical signature or stamp is required.</p>
             </div>
           </div>
 
@@ -720,9 +720,9 @@
           <div class="flex text-amber-500 text-sm">★★★★★</div>
           <p class="text-slate-600 text-xs leading-relaxed italic">"I was nervous about my elderly father's blood collection. The home phlebotomist from Diagnostic Hub was incredible. Professional, gentle, and the report arrived on my WhatsApp by 7 PM same day."</p>
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">EM</div>
+            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">AK</div>
             <div>
-              <h5 class="font-bold text-xs text-slate-950">Emily Martinez</h5>
+              <h5 class="font-bold text-xs text-slate-950">Ayesha Khan</h5>
               <p class="text-[10px] text-slate-400">Verified Patient</p>
             </div>
           </div>
@@ -732,9 +732,9 @@
           <div class="flex text-amber-500 text-sm">★★★★★</div>
           <p class="text-slate-600 text-xs leading-relaxed italic">"The PDF report was so beautifully structured with color indicators. I entered the tracking ID on the site to show my doctor and he praised the detail. Highly recommend the Wellness Package."</p>
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">JC</div>
+            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">UT</div>
             <div>
-              <h5 class="font-bold text-xs text-slate-950">James Carter</h5>
+              <h5 class="font-bold text-xs text-slate-950">Usman Tariq</h5>
               <p class="text-[10px] text-slate-400">Verified Patient</p>
             </div>
           </div>
@@ -744,9 +744,9 @@
           <div class="flex text-amber-500 text-sm">★★★★★</div>
           <p class="text-slate-600 text-xs leading-relaxed italic">"Extremely easy interface. Selected tests, filled in details, selected my time slot, and the technician knocked on my door right at 7:30 AM. Smooth, digital and completely hassle free."</p>
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">SL</div>
+            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">FA</div>
             <div>
-              <h5 class="font-bold text-xs text-slate-950">Sarah Lee</h5>
+              <h5 class="font-bold text-xs text-slate-950">Fatima Ali</h5>
               <p class="text-[10px] text-slate-400">Verified Patient</p>
             </div>
           </div>
@@ -1138,7 +1138,7 @@
     // --- MOCK SAMPLE REPORT DATABASE ---
     const MEDICAL_REPORTS_MOCK = {
       'DH-2026': {
-        patient: 'Arthur Pendragon',
+        patient: 'Salman Ahmed',
         age: 39,
         gender: 'Male',
         collectDate: '2026-06-10 07:15 AM',
@@ -1601,7 +1601,7 @@
     }
 
     function triggerMockDownload() {
-      showToast("💾 PDF report compilation initiated. Downloading file: DH-Report-Signed.pdf");
+      showToast("💾 PDF report compilation initiated. Downloading file: DH-Report-Official.pdf");
     }
 
     // --- COOKIE BANNER & CUSTOMIZATION SCRIPTS ---
