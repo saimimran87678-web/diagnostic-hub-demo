@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic Hub - Modern Laboratory & Health Services</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar for a premium look */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .gradient-bg {
+      background: radial-gradient(circle at 10% 20%, rgba(20, 184, 166, 0.05) 0%, rgba(255, 255, 255, 0) 80%);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased gradient-bg min-h-screen flex flex-col">
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 transform group-hover:scale-105 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v11.696a4.5 4.5 0 00.884 2.736l5.071 6.338a1.125 1.125 0 01-.884 1.832H9.231a1.125 1.125 0 01-.884-1.832l5.071-6.338a4.5 4.5 0 00.884-2.736V3.104c0-.621.504-1.125 1.125-1.125h1.5a1.125 1.125 0 011.125 1.125z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 14h6M4 8h3M4 12h2" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-heading font-extrabold text-2xl tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">Diagnostic<span class="text-brand-500 font-medium">Hub</span></span>
+          <p class="text-[10px] text-slate-400 tracking-widest uppercase font-bold">State-Of-The-Art Lab</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
+        <a href="#test-directory" class="hover:text-brand-600 transition-colors">Book Tests</a>
+        <a href="#report-portal" class="hover:text-brand-600 transition-colors">Download Reports</a>
+        <a href="#about-us" class="hover:text-brand-600 transition-colors">Why Diagnostic Hub</a>
+        <a href="#faq" class="hover:text-brand-600 transition-colors">FAQs</a>
+      </nav>
+
+      <!-- Cart and CTA -->
+      <div class="flex items-center space-x-4">
+        <!-- Shopping Cart Icon with Badge -->
+        <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-full hover:bg-slate-100 transition-all text-slate-600 hover:text-brand-600">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+          </svg>
+          <span id="cart-badge" class="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+        </button>
+
+        <a href="#booking-section" class="hidden sm:inline-flex items-center justify-center px-5  h-11 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 shadow-md shadow-slate-900/10 active:scale-95 transition-all">
+          Book Home Collection
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Hero Info -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 bg-brand-50 border border-brand-200 px-3 py-1.5 rounded-full text-brand-700 text-xs font-semibold">
+            <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+            <span>CAP-Accredited & ISO-Certified Laboratories</span>
+          </div>
+          <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.15]">
+            Precise diagnostics for your <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-teal-500">peace of mind.</span>
+          </h1>
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Get 100% accurate, smart medical test results with free home sample collection. Managed by expert certified pathologists, delivered online in under 12 hours.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <a href="#test-directory" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-600/20 active:scale-95 transition-all">
+              Explore 150+ Tests
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 ml-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+            <a href="#report-portal" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-base border border-slate-200 active:scale-95 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2 text-slate-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              Retrieve Reports
+            </a>
+          </div>
+
+          <!-- Feature badges -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <p class="font-heading text-2xl font-extrabold text-slate-900">12 hrs</p>
+              <p class="text-xs text-slate-500">Fastest Turnaround</p>
+            </div>
+            <div>
+              <p class="font-heading text-2xl font-extrabold text-slate-900">Free</p>
+              <p class="text-xs text-slate-500">Home Collection</p>
+            </div>
+            <div>
+              <p class="font-heading text-2xl font-extrabold text-slate-900">100%</p>
+              <p class="text-xs text-slate-500">Accurate & Certified</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Interactive Panel -->
+        <div class="lg:col-span-5 relative">
+          <div class="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-brand-400 to-teal-400 opacity-30 blur-2xl"></div>
+          <div class="relative bg-white border border-slate-200 rounded-3xl p-6 shadow-xl space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+              <span class="font-heading font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Live Portal
+              </span>
+              <span class="text-xs text-slate-400">Secure AES-256 Encryption</span>
+            </div>
+
+            <div class="space-y-4">
+              <h3 class="font-heading font-bold text-lg text-slate-900">Instantly Access Diagnostic Reports</h3>
+              <p class="text-slate-500 text-xs">Enter your tracking ID to view or download finalized pathology reports. (Try code <code class="font-mono bg-slate-100 px-1 py-0.5 text-slate-700 font-bold">DH-2026</code> to test)</p>
+              
+              <div class="flex space-x-2">
+                <input id="hero-portal-input" type="text" placeholder="Sample ID (e.g., DH-2026)" class="w-full px-4 h-12 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold tracking-wider focus:outline-none focus:border-brand-500 focus:bg-white transition-all uppercase">
+                <button onclick="handleQuickReportSearch()" class="px-5 h-12 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm flex items-center justify-center transition-all shadow-md shadow-brand-600/10 active:scale-95">
+                  Search
+                </button>
+              </div>
+              <p id="hero-portal-error" class="text-xs text-red-500 hidden"></p>
+            </div>
+
+            <!-- Promotion Highlight -->
+            <div class="bg-gradient-to-br from-brand-50 to-teal-50/20 border border-brand-100/50 rounded-2xl p-4 flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-white text-brand-600 shadow-sm border border-brand-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.491 5.922l.75 3a.75.75 0 00.722.578h10.038a.75.75 0 00.722-.578l.75-3a.75.75 0 00-.23-.741l-7.485-6.142a.75.75 0 00-.978 0l-7.485 6.142a.75.75 0 00-.23.741zM12 2.25H9a.75.75 0 000 1.5h3v3.75a.75.75 0 001.5 0V3.75h3a.75.75 0 000-1.5h-3a1.5 1.5 0 01-1.5-1.5z" />
+                </svg>
+              </div>
+              <div class="space-y-1">
+                <h4 class="font-heading font-bold text-xs text-brand-900">Featured Active Package</h4>
+                <p class="text-[11px] text-slate-500 font-medium">Get a Comprehensive Complete Health Screening (78 essential parameters analyzed) at 45% Off today!</p>
+                <button onclick="addFeaturedPackage()" class="text-xs text-brand-600 font-bold hover:text-brand-700 flex items-center gap-1 pt-1">
+                  Book This Deal &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS & USP GRID ================= -->
+  <section class="bg-white border-y border-slate-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="flex items-center space-x-4">
+          <div class="p-3 bg-brand-50 text-brand-600 rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h3.75a2.25 2.25 0 012.25 2.25v.75m-8.25-3h8.25m-8.25 0A2.25 2.25 0 003 4.5v3a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 7.5v-3a2.25 2.25 0 00-2.25-2.25m-16.5 6h16.5m-16.5 0a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h16.5a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25M9 13.5H15M9 16.5H15" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-slate-900">100% Digital</h4>
+            <p class="text-xs text-slate-500">Reports on WhatsApp & Web</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="p-3 bg-brand-50 text-brand-600 rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.109A2.25 2.25 0 0112.75 21.5h-1.5a2.25 2.25 0 01-2.25-2.263v-.11a9.38 9.38 0 002.625-.372C11.606 18.25 12 17.114 12 15.877c0-.203-.007-.405-.021-.605M15 15.877a9.38 9.38 0 002.625-.372m0 0A3.978 3.978 0 0018 13.5c0-.621-.141-1.209-.39-1.734m-2.61 5.111a9.337 9.337 0 01-4.121-.952 4.125 4.125 0 017.533-2.493M18 13.5a3.978 3.978 0 00-.39-1.734m-2.61-5.111A9.337 9.337 0 0010.879 5.7M12 9.75h-.008v.008H12V9.75z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-slate-900">Expert Pathologists</h4>
+            <p class="text-xs text-slate-500">Double verification on all findings</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="p-3 bg-brand-50 text-brand-600 rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0110 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0114 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-slate-900">Certified Saftey</h4>
+            <p class="text-xs text-slate-500">Sterilized, single-use, barcoded kits</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="p-3 bg-brand-50 text-brand-600 rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-slate-900">Home Sample Collection</h4>
+            <p class="text-xs text-slate-500">Painless phlebotomy at your door</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SEARCHABLE TEST DIRECTORY ================= -->
+  <section id="test-directory" class="py-16 bg-slate-50 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center space-y-3 max-w-2xl mx-auto mb-12">
+        <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900">Browse Tests & Packages</h2>
+        <p class="text-slate-500 text-sm">Select from individual pathologies to comprehensive wellness profiles. Add tests directly to book an appointment.</p>
+      </div>
+
+      <!-- Filter Categories & Search Bar -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-6 mb-8 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+        <!-- Search -->
+        <div class="relative w-full md:max-w-md">
+          <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637z" />
+            </svg>
+          </span>
+          <input id="test-search-input" onkeyup="handleSearchAndFilter()" type="text" placeholder="Search for Kidney, Blood, Lipid, Liver etc..." class="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all">
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2 w-full md:w-auto justify-start md:justify-end">
+          <button onclick="changeCategory('all')" id="btn-cat-all" class="px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white transition-all shadow-sm">
+            All Tests
+          </button>
+          <button onclick="changeCategory('wellness')" id="btn-cat-wellness" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all">
+            Wellness Profiles
+          </button>
+          <button onclick="changeCategory('popular')" id="btn-cat-popular" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all">
+            Popular Tests
+          </button>
+          <button onclick="changeCategory('cardio')" id="btn-cat-cardio" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all">
+            Heart & Liver
+          </button>
+        </div>
+      </div>
+
+      <!-- Tests Grid -->
+      <div id="tests-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamic content generated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE BOOKING WIZARD ================= -->
+  <section id="booking-section" class="py-16 bg-white border-y border-slate-200 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center space-y-3 mb-12">
+        <h2 class="font-heading font-black text-3xl text-slate-900">Easy Online Lab Booking</h2>
+        <p class="text-slate-500 text-sm">Schedule your lab appointment or professional at-home sample collection in 3 steps.</p>
+      </div>
+
+      <!-- Booking Card -->
+      <div class="bg-white border border-slate-200 shadow-xl rounded-3xl overflow-hidden">
+        <!-- Header Steps Indicator -->
+        <div class="bg-slate-50 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+          <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-2" id="step1-indicator">
+              <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-extrabold shadow-md shadow-brand-500/10">1</span>
+              <span class="text-xs font-bold text-slate-800">Review Services</span>
+            </div>
+            <div class="flex items-center space-x-2 opacity-40" id="step2-indicator">
+              <span class="w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-extrabold">2</span>
+              <span class="text-xs font-bold text-slate-600">Patient Details</span>
+            </div>
+            <div class="flex items-center space-x-2 opacity-40" id="step3-indicator">
+              <span class="w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-extrabold">3</span>
+              <span class="text-xs font-bold text-slate-600">Schedule & Finish</span>
+            </div>
+          </div>
+          <span class="text-[11px] font-bold tracking-widest text-brand-600 uppercase" id="wizard-status-bar">Review</span>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- STEP 1 VIEW: Selected Tests & Pricing Review -->
+          <div id="wizard-step1" class="space-y-6">
+            <div class="space-y-4">
+              <h3 class="font-heading font-bold text-lg text-slate-900">Your Diagnostic Cart</h3>
+              
+              <div id="wizard-cart-items" class="divide-y divide-slate-100 max-h-60 overflow-y-auto pr-2 space-y-2">
+                <!-- Selected items will dynamically render here -->
+                <div class="py-4 text-center text-slate-400 text-sm italic">
+                  No tests selected yet. Please add tests from the Directory above or select the fast-track starter pack below.
+                </div>
+              </div>
+
+              <!-- Quick Start recommendation if empty -->
+              <div id="quick-start-pack" class="p-4 bg-slate-50 border border-dashed border-slate-200 rounded-xl flex justify-between items-center flex-wrap gap-4">
+                <div>
+                  <h4 class="font-bold text-xs text-slate-800">Add Essential Vital Checkup</h4>
+                  <p class="text-[11px] text-slate-500">Includes Complete Blood Count (CBC) & Wellness Screening</p>
+                </div>
+                <button onclick="addStarterPack()" class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:border-brand-500 hover:text-brand-600 text-xs font-extrabold text-slate-700 transition-all active:scale-95">
+                  + Add Fast-Pack (Rs. 3,000)
+                </button>
+              </div>
+
+              <!-- Subtotal / Summary -->
+              <div class="border-t border-slate-100 pt-4 flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-500 font-medium">Test Subtotal</span>
+                  <span class="font-bold text-slate-900" id="summary-subtotal">Rs. 0</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-500 font-medium">Home Phlebotomy Surcharge</span>
+                  <span class="font-semibold text-emerald-600" id="summary-shipping">FREE</span>
+                </div>
+                <div class="border-t border-slate-100 pt-2 flex justify-between text-base">
+                  <span class="font-heading font-bold text-slate-900">Grand Total</span>
+                  <span class="font-heading font-black text-brand-600 text-xl" id="summary-total">Rs. 0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end pt-4">
+              <button onclick="wizardNextToStep2()" id="step1-next-btn" disabled class="px-6 py-3 rounded-xl bg-slate-300 text-slate-500 cursor-not-allowed font-bold text-sm transition-all shadow-md">
+                Proceed to Patient Info &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2 VIEW: Patient Info (Hidden by default) -->
+          <div id="wizard-step2" class="space-y-6 hidden">
+            <h3 class="font-heading font-bold text-lg text-slate-900">Enter Patient Information</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-600">Full Name</label>
+                <input type="text" id="patient-name" placeholder="John Doe" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-600">Phone Number</label>
+                <input type="tel" id="patient-phone" placeholder="0300-0000000" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-600">Age</label>
+                <input type="number" id="patient-age" placeholder="32" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-600">Biological Gender</label>
+                <select id="patient-gender" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-600">Select Collection Method</label>
+              <div class="grid grid-cols-2 gap-4">
+                <label class="border-2 border-brand-500 bg-brand-50/20 p-4 rounded-xl flex items-center gap-3 cursor-pointer transition-all" id="method-home-label">
+                  <input type="radio" name="collection-method" value="Home" checked onchange="toggleMethodUI('Home')" class="accent-brand-600">
+                  <div>
+                    <p class="font-bold text-xs text-slate-800">Home Sample Collection</p>
+                    <p class="text-[10px] text-slate-500">Free, door-step service</p>
+                  </div>
+                </label>
+                <label class="border border-slate-200 p-4 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 transition-all" id="method-lab-label">
+                  <input type="radio" name="collection-method" value="Lab" onchange="toggleMethodUI('Lab')" class="accent-brand-600">
+                  <div>
+                    <p class="font-bold text-xs text-slate-800">Visit Laboratory</p>
+                    <p class="text-[10px] text-slate-500">Visit our central diagnostic hub</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="space-y-1" id="address-block">
+              <label class="text-xs font-bold text-slate-600">Complete Home Address</label>
+              <textarea id="patient-address" rows="2" placeholder="House #, Street Name, Sector/Area, City" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all"></textarea>
+            </div>
+
+            <div class="flex justify-between pt-4 border-t border-slate-100">
+              <button onclick="wizardBackToStep1()" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 font-semibold text-slate-700 text-sm transition-all">
+                &larr; Back
+              </button>
+              <button onclick="wizardNextToStep3()" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md shadow-brand-600/10">
+                Next: Select Slot &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3 VIEW: Date & Slot Select (Hidden by default) -->
+          <div id="wizard-step3" class="space-y-6 hidden">
+            <h3 class="font-heading font-bold text-lg text-slate-900">Select Appointment Schedule</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-600">Appointment Date</label>
+                <input type="date" id="booking-date" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-600">Preferred Time Slot</label>
+                <select id="booking-slot" class="w-full px-4 h-11 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
+                  <option value="">Select a Slot</option>
+                  <option value="06:00 AM - 08:00 AM">06:00 AM - 08:00 AM (Recommended for Fasting)</option>
+                  <option value="08:00 AM - 10:00 AM">08:00 AM - 10:00 AM (Recommended for Fasting)</option>
+                  <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                  <option value="12:00 PM - 03:00 PM">12:00 PM - 03:00 PM</option>
+                  <option value="03:00 PM - 06:00 PM">03:00 PM - 06:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Fasting Instruction Alert -->
+            <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-3">
+              <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+              </svg>
+              <div>
+                <h4 class="font-bold text-xs text-amber-900">Important Instruction: Fasting Required?</h4>
+                <p class="text-[11px] text-amber-700">If any of your chosen tests require "Fasting", ensure the patient does not consume any food or drink (except plain water) for 10-12 hours prior to collection.</p>
+              </div>
+            </div>
+
+            <div class="flex justify-between pt-4 border-t border-slate-100">
+              <button onclick="wizardBackToStep2()" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 font-semibold text-slate-700 text-sm transition-all">
+                &larr; Back
+              </button>
+              <button onclick="submitBooking()" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md shadow-brand-600/10">
+                Confirm & Book Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REPORT PORTAL (INTERACTIVE VIEWER) ================= -->
+  <section id="report-portal" class="py-16 bg-slate-50 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center space-y-3 mb-10">
+        <h2 class="font-heading font-black text-3xl text-slate-900">Secured Patient Report Center</h2>
+        <p class="text-slate-500 text-sm">Review, print, and securely archive your official diagnostic laboratory papers online.</p>
+      </div>
+
+      <!-- Main Portal Container -->
+      <div class="bg-white border border-slate-200 rounded-3xl shadow-lg overflow-hidden">
+        <!-- Input section -->
+        <div class="p-6 sm:p-8 bg-slate-50/50 border-b border-slate-200 text-center space-y-4">
+          <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Secure Medical Verification System</p>
+          <div class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+            <input id="portal-input" type="text" placeholder="Enter Patient Sample ID" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-center uppercase focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all">
+            <button onclick="searchReport()" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md shadow-brand-600/10 shrink-0">
+              Fetch Live Report
+            </button>
+          </div>
+          <p class="text-xs text-slate-400">Sample ID consists of prefix DH followed by numbers. Try searching: <span onclick="document.getElementById('portal-input').value='DH-2026'" class="underline text-brand-600 hover:text-brand-700 font-bold cursor-pointer">DH-2026</span></p>
+        </div>
+
+        <!-- Dynamic Output Loading State -->
+        <div id="report-loading" class="hidden py-16 text-center space-y-4">
+          <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-slate-300 border-t-brand-600"></div>
+          <p class="text-slate-500 text-sm font-semibold">Decrypting laboratory files and digital signatures...</p>
+        </div>
+
+        <!-- Dynamic Output Default State -->
+        <div id="report-placeholder" class="py-16 text-center space-y-4">
+          <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.23 13.438l-2.25-2.25a.75.75 0 00-1.06 0l-2.25 2.25m2.75-2.25V18M15 11.25H9.75M15 15.25H9.75M19.5 3.125c0-1.036-.84-1.875-1.875-1.875H5.25C4.214 1.25 3.375 2.09 3.375 3.125v17.75c0 1.036.84 1.875 1.875 1.875h13.5c1.036 0 1.875-.84 1.875-1.875V3.125z" />
+            </svg>
+          </div>
+          <p class="text-slate-500 text-sm max-w-sm mx-auto">Input a valid Sample ID above to verify and load authentic, certified lab medical reports.</p>
+        </div>
+
+        <!-- Dynamic Output Content State (Beautiful PDF Mock) -->
+        <div id="report-content" class="hidden p-6 sm:p-10 border-t border-slate-100 bg-white">
+          <!-- Laboratory Header -->
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b-2 border-slate-800 gap-4">
+            <div>
+              <h4 class="font-heading font-black text-2xl text-slate-900 tracking-tight">DIAGNOSTIC HUB LABS</h4>
+              <p class="text-xs text-slate-500 font-medium">Headquarters: Plot#33 Street 22, G-8/4, Islamabad</p>
+              <p class="text-[10px] text-slate-400">NABL Accreditation No: MC-2051 | CAP Number: 711925</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <!-- Certified Emblem -->
+              <div class="w-12 h-12 rounded-full border border-brand-200 bg-brand-50 flex items-center justify-center text-brand-600">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                  <path fill-rule="evenodd" d="M8.603 3.727A4.49 4.49 0 0112 2.25c1.356 0 2.578.599 3.397 1.477a4.49 4.49 0 014.207 4.207 4.49 4.49 0 011.477 3.397c0 1.356-.599 2.578-1.477 3.397a4.49 4.49 0 01-4.207 4.207 4.49 4.49 0 01-3.397 1.477 4.49 4.49 0 01-3.397-1.477 4.49 4.49 0 01-4.207-4.207 4.49 4.49 0 01-1.477-3.397c0-1.356.599-2.578 1.477-3.397a4.49 4.49 0 014.207-4.207zm3.75 4.773a.75.75 0 00-1.5 0v5.25a.75.75 0 00.75.75h3.75a.75.75 0 000-1.5h-3V8.5z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100 block text-center">CERTIFIED</span>
+                <span class="text-[9px] text-slate-400">Authentic Digital Sign</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Patient & Reference Meta Info -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-b border-slate-200 text-xs">
+            <div>
+              <p class="text-slate-400 font-medium">Patient Name:</p>
+              <p class="font-bold text-slate-900" id="rep-patient-name">Arthur Pendragon</p>
+            </div>
+            <div>
+              <p class="text-slate-400 font-medium">Age / Gender:</p>
+              <p class="font-bold text-slate-900" id="rep-patient-meta">39 Years / Male</p>
+            </div>
+            <div>
+              <p class="text-slate-400 font-medium">Sample ID / Barcode:</p>
+              <p class="font-bold text-slate-900 font-mono" id="rep-sample-id">DH-2026</p>
+            </div>
+            <div>
+              <p class="text-slate-400 font-medium">Collected Date / Time:</p>
+              <p class="font-bold text-slate-900" id="rep-collect-date">2026-06-10 07:15 AM</p>
+            </div>
+          </div>
+
+          <!-- Test Results Table -->
+          <div class="py-6 space-y-4">
+            <h5 class="font-heading font-extrabold text-sm text-slate-800 tracking-wider uppercase bg-slate-50 p-2 border-l-4 border-brand-500">Comprehensive Metabolic Panel (CMP)</h5>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="border-b border-slate-300 text-slate-400">
+                    <th class="py-2.5 font-semibold">Test Parameter</th>
+                    <th class="py-2.5 font-semibold">Observed Value</th>
+                    <th class="py-2.5 font-semibold">Reference Interval</th>
+                    <th class="py-2.5 font-semibold">Unit</th>
+                    <th class="py-2.5 font-semibold text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-slate-700" id="report-tbody">
+                  <!-- Dynamic rows from script -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Pathologist Remarks -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1">
+            <h6 class="font-bold text-slate-800">Chief Pathologist Comments:</h6>
+            <p class="text-slate-600 italic" id="rep-pathologist-remarks">"All evaluated indicators align with physiological baselines. Minor elevation in Glucose (Fasting) might indicate dietary intake profiles. Recommend clinical correlation."</p>
+          </div>
+
+          <!-- Signatures Footer -->
+          <div class="pt-8 flex justify-between items-end border-t border-slate-200 mt-8">
+            <div class="text-[10px] text-slate-400">
+              <p>Printed on: June 11, 2026 05:51 AM</p>
+              <p>System Ver: DH-LAB-CLOUD_10.4</p>
+            </div>
+            <div class="text-center space-y-1">
+              <div class="w-24 h-10 border-b border-slate-300 mx-auto flex items-center justify-center text-xs text-brand-600 font-bold tracking-tight italic">
+                Dr. R. Vance
+              </div>
+              <p class="text-[10px] font-bold text-slate-800">Dr. Robert Vance, MD</p>
+              <p class="text-[9px] text-slate-400">Senior Pathology Director</p>
+            </div>
+          </div>
+
+          <!-- Action buttons for report -->
+          <div class="mt-6 flex justify-end gap-3 pt-4 border-t border-slate-100">
+            <button onclick="window.print()" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.89l-2.24-2.24m0 0l2.24-2.24m-2.24 2.24h10.88m2.24 5.61V16.5m0 0a2.25 2.25 0 10-4.5 0v2.25M18 16.5v2.25m-1.5-6H19.5m-2.25-6a2.25 2.25 0 114.5 0V9m-4.5-2.25h.008v.008H18V6.75z" />
+              </svg>
+              Print Report
+            </button>
+            <button onclick="triggerMockDownload()" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md shadow-brand-600/15">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              Download PDF Report
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY DIAGNOSTIC HUB (ABOUT US) ================= -->
+  <section id="about-us" class="py-16 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <span class="text-xs font-bold tracking-widest text-brand-600 uppercase">Unparalleled Standards</span>
+          <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900">Why Hundreds of Hospitals & Patients Trust Us Daily</h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Diagnostic Hub operates with world-class automated technology networks. Through stringent quality management cycles, every test is analyzed down to the microscopic level to ensure high sensitivity and specific accuracy.
+          </p>
+
+          <div class="space-y-4 pt-4">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-sm text-slate-900">NABL & CAP Gold standard Protocols</h4>
+                <p class="text-xs text-slate-500">Adhering to strict international standard laboratory performance diagnostics guidelines.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-sm text-slate-900">Painless Vaccutainer Systems</h4>
+                <p class="text-xs text-slate-500">We use special precision medical needles that guarantee zero pain or bruise marks.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-sm text-slate-900">Real-time Sample Temperature Tracking</h4>
+                <p class="text-xs text-slate-500">We carry samples in unique active-cooling temperature-monitored medical smart storage.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual / Graphic grid of stats -->
+        <div class="grid grid-cols-2 gap-6 relative">
+          <div class="absolute -inset-1 rounded-3xl bg-teal-200 opacity-20 blur-xl"></div>
+          
+          <div class="relative bg-slate-50 border border-slate-200 p-6 rounded-2xl flex flex-col justify-between h-40">
+            <span class="text-3xl">🔬</span>
+            <div>
+              <p class="font-heading font-black text-2xl text-slate-900">100,000+</p>
+              <p class="text-xs text-slate-500 font-medium">Samples Processed Yearly</p>
+            </div>
+          </div>
+
+          <div class="relative bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-between h-40 transform translate-y-6">
+            <span class="text-3xl">🏠</span>
+            <div>
+              <p class="font-heading font-black text-2xl text-brand-400">100% Free</p>
+              <p class="text-xs text-slate-400 font-medium">Home Sample Pickup</p>
+            </div>
+          </div>
+
+          <div class="relative bg-slate-50 border border-slate-200 p-6 rounded-2xl flex flex-col justify-between h-40">
+            <span class="text-3xl">🩺</span>
+            <div>
+              <p class="font-heading font-black text-2xl text-slate-900">150+</p>
+              <p class="text-xs text-slate-500 font-medium">Clinically Certified Tests</p>
+            </div>
+          </div>
+
+          <div class="relative bg-slate-50 border border-slate-200 p-6 rounded-2xl flex flex-col justify-between h-40 transform translate-y-6">
+            <span class="text-3xl">⏱️</span>
+            <div>
+              <p class="font-heading font-black text-2xl text-slate-900">&lt; 12 hrs</p>
+              <p class="text-xs text-slate-500 font-medium">Average Report Release</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="py-16 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center space-y-3 mb-12">
+        <h2 class="font-heading font-black text-3xl text-slate-900">What Our Patients Say</h2>
+        <p class="text-slate-500 text-sm">Real reviews from verified patients about our professional phlebotomy services.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm space-y-4">
+          <div class="flex text-amber-500 text-sm">★★★★★</div>
+          <p class="text-slate-600 text-xs leading-relaxed italic">"I was nervous about my elderly father's blood collection. The home phlebotomist from Diagnostic Hub was incredible. Professional, gentle, and the report arrived on my WhatsApp by 7 PM same day."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">EM</div>
+            <div>
+              <h5 class="font-bold text-xs text-slate-950">Emily Martinez</h5>
+              <p class="text-[10px] text-slate-400">Verified Patient</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm space-y-4">
+          <div class="flex text-amber-500 text-sm">★★★★★</div>
+          <p class="text-slate-600 text-xs leading-relaxed italic">"The PDF report was so beautifully structured with color indicators. I entered the tracking ID on the site to show my doctor and he praised the detail. Highly recommend the Wellness Package."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">JC</div>
+            <div>
+              <h5 class="font-bold text-xs text-slate-950">James Carter</h5>
+              <p class="text-[10px] text-slate-400">Verified Patient</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm space-y-4">
+          <div class="flex text-amber-500 text-sm">★★★★★</div>
+          <p class="text-slate-600 text-xs leading-relaxed italic">"Extremely easy interface. Selected tests, filled in details, selected my time slot, and the technician knocked on my door right at 7:30 AM. Smooth, digital and completely hassle free."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">SL</div>
+            <div>
+              <h5 class="font-bold text-xs text-slate-950">Sarah Lee</h5>
+              <p class="text-[10px] text-slate-400">Verified Patient</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQS SECTION ================= -->
+  <section id="faq" class="py-16 bg-white border-t border-slate-200 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center space-y-3 mb-12">
+        <h2 class="font-heading font-black text-3xl text-slate-900">Frequently Asked Questions</h2>
+        <p class="text-slate-500 text-sm">Everything you need to know about our tests, reports, and procedures.</p>
+      </div>
+
+      <div class="space-y-4 divide-y divide-slate-100">
+        <!-- FAQ 1 -->
+        <div class="pt-4 first:pt-0">
+          <button onclick="toggleFaq(1)" class="w-full text-left flex justify-between items-center py-2 text-slate-950 hover:text-brand-600 font-bold text-sm transition-colors">
+            <span>Do I need a doctor's prescription to book tests?</span>
+            <span id="faq-icon-1" class="text-slate-400 font-normal text-lg">+</span>
+          </button>
+          <div id="faq-ans-1" class="hidden text-slate-500 text-xs leading-relaxed pb-4 pt-1">
+            No, a prior doctor's prescription is not strictly mandatory for standard wellness or routine health checkups. However, if you are undergoing diagnostic tests to monitor specific therapies, we highly recommend consulting your personal healthcare practitioner.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="pt-4">
+          <button onclick="toggleFaq(2)" class="w-full text-left flex justify-between items-center py-2 text-slate-950 hover:text-brand-600 font-bold text-sm transition-colors">
+            <span>How and when will I receive my laboratory reports?</span>
+            <span id="faq-icon-2" class="text-slate-400 font-normal text-lg">+</span>
+          </button>
+          <div id="faq-ans-2" class="hidden text-slate-500 text-xs leading-relaxed pb-4 pt-1">
+            Most routine test reports are compiled, double-verified, and dispatched within 12 hours of sample acquisition. You will receive an automated PDF copy directly on your registered WhatsApp number, an email alert, and can download it securely anytime through our patient portal using your tracking ID.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="pt-4">
+          <button onclick="toggleFaq(3)" class="w-full text-left flex justify-between items-center py-2 text-slate-950 hover:text-brand-600 font-bold text-sm transition-colors">
+            <span>What are the preparations required before a blood sample collection?</span>
+            <span id="faq-icon-3" class="text-slate-400 font-normal text-lg">+</span>
+          </button>
+          <div id="faq-ans-3" class="hidden text-slate-500 text-xs leading-relaxed pb-4 pt-1">
+            Tests like blood glucose fasting, lipid profiles, and metabolic checkups require 10-12 hours of overnight fasting. You should only drink water during this period. For other standard tests, no prior preparations are required. Check specific instructions on individual tests in the directory.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="pt-4">
+          <button onclick="toggleFaq(4)" class="w-full text-left flex justify-between items-center py-2 text-slate-950 hover:text-brand-600 font-bold text-sm transition-colors">
+            <span>Are there any charges for home sample collection?</span>
+            <span id="faq-icon-4" class="text-slate-400 font-normal text-lg">+</span>
+          </button>
+          <div id="faq-ans-4" class="hidden text-slate-500 text-xs leading-relaxed pb-4 pt-1">
+            Currently, at Diagnostic Hub, home sample collection is 100% free with all wellness packages and bookings exceeding a value of Rs. 3,000. There are no hidden physical handling or phlebotomy processing charges.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto bg-slate-950 text-slate-400 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3 text-white">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v11.696a4.5 4.5 0 00.884 2.736l5.071 6.338a1.125 1.125 0 01-.884 1.832H9.231a1.125 1.125 0 01-.884-1.832l5.071-6.338a4.5 4.5 0 00.884-2.736V3.104c0-.621.504-1.125 1.125-1.125h1.5a1.125 1.125 0 011.125 1.125z" />
+              </svg>
+            </div>
+            <span class="font-heading font-extrabold text-xl tracking-tight">Diagnostic<span class="text-brand-400">Hub</span></span>
+          </div>
+          <p class="text-xs leading-relaxed">
+            World-class pathology laboratory diagnostic infrastructure offering precise clinical insights right to your smartphone screen or doorstep.
+          </p>
+          <p class="text-[10px] text-slate-500">
+            NABL ISO 15189:2012 Quality Accredited Clinical Pathological Lab.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="space-y-3">
+          <h5 class="text-xs font-bold uppercase text-white tracking-widest">Medical Services</h5>
+          <ul class="text-xs space-y-2">
+            <li><a href="#test-directory" class="hover:text-brand-400 transition-all">Complete Blood Count</a></li>
+            <li><a href="#test-directory" class="hover:text-brand-400 transition-all">Lipid Profile Cardiovascular</a></li>
+            <li><a href="#test-directory" class="hover:text-brand-400 transition-all">Diabetes Profile Tests</a></li>
+            <li><a href="#test-directory" class="hover:text-brand-400 transition-all">Liver Function Panel</a></li>
+            <li><a href="#test-directory" class="hover:text-brand-400 transition-all">Kidney Biomechanics Profile</a></li>
+          </ul>
+        </div>
+
+        <!-- Lab Locations -->
+        <div class="space-y-3">
+          <h5 class="text-xs font-bold uppercase text-white tracking-widest">Main Hubs</h5>
+          <ul class="text-xs space-y-2">
+            <li>📍 Plot#33 Street 22, G-8/4, Islamabad (HQ)</li>
+            <li>📍 Jinnah Avenue, Blue Area</li>
+            <li>📍 F-8 Markaz Center</li>
+            <li>📍 DHA Phase 2 Clinic</li>
+          </ul>
+        </div>
+
+        <!-- Legal / Cookie settings -->
+        <div class="space-y-3">
+          <h5 class="text-xs font-bold uppercase text-white tracking-widest">Privacy & Control</h5>
+          <ul class="text-xs space-y-2">
+            <li><a href="#" class="hover:text-brand-400 transition-all">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-all">Terms of Medical Service</a></li>
+            <li>
+              <button onclick="showCookiePreferences()" class="hover:text-brand-400 transition-all text-left flex items-center gap-1.5 text-xs">
+                <span>🍪 Cookie Preferences</span>
+              </button>
+            </li>
+          </ul>
+          <!-- Quick Status banner -->
+          <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl">
+            <p class="text-[10px] text-slate-500 font-bold uppercase">System Status</p>
+            <p class="text-xs text-brand-400 font-bold flex items-center gap-1.5 mt-0.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> 
+              Cloud Servers Active
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-slate-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between text-xs text-slate-600 gap-4">
+        <p>&copy; 2026 Diagnostic Hub Laboratories Inc. All rights reserved.</p>
+        <p>Managed in accordance with global HIPAA health data protection frameworks.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ================= SLIDE-OVER CART DRAWER ================= -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 overflow-hidden">
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-slate-950/40 backdrop-blur-xs transition-opacity" onclick="toggleCartDrawer(false)"></div>
+
+      <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+        <div class="pointer-events-auto w-screen max-w-md">
+          <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-2xl">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+              <div class="flex items-start justify-between">
+                <h2 class="font-heading font-black text-lg text-slate-900" id="slide-over-title">Booking Cart</h2>
+                <div class="ml-3 flex h-7 items-center">
+                  <button type="button" onclick="toggleCartDrawer(false)" class="relative -m-2 p-2 text-slate-400 hover:text-slate-500">
+                    <span class="sr-only">Close panel</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Cart content -->
+              <div class="mt-8">
+                <div class="flow-root">
+                  <ul role="list" class="-my-6 divide-y divide-slate-100" id="cart-drawer-list">
+                    <!-- Loaded dynamically -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total and Checkout -->
+            <div class="border-t border-slate-200 px-4 py-6 sm:px-6 space-y-4">
+              <div class="flex justify-between text-base font-semibold text-slate-900">
+                <p>Cart Subtotal</p>
+                <p id="drawer-subtotal">Rs. 0</p>
+              </div>
+              <p class="text-xs text-slate-500">Home phlebotomist collection and transport charges calculated on checkout.</p>
+              <div class="grid grid-cols-2 gap-3">
+                <button onclick="toggleCartDrawer(false)" class="flex items-center justify-center rounded-xl border border-slate-200 px-4 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-all">
+                  Continue Browsing
+                </button>
+                <a href="#booking-section" onclick="toggleCartDrawer(false)" class="flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 text-xs font-bold transition-all shadow-md shadow-brand-600/10 active:scale-95">
+                  Proceed to Booking
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= INTERACTIVE COOKIE CONSENT POP-UP ================= -->
+  <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-50 bg-slate-900 text-white border border-slate-800 p-5 rounded-2xl shadow-2xl flex flex-col gap-4 transform translate-y-20 opacity-0 transition-all duration-500">
+    <div class="flex items-start gap-4">
+      <div class="text-3xl shrink-0">🍪</div>
+      <div class="space-y-1">
+        <h4 class="font-heading font-extrabold text-sm tracking-tight text-white">We Value Your Health Privacy</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">We use essential cookies to manage your diagnostic tests cart and retrieve report panels securely. We also use analytics cookies to optimize portal performance.</p>
+      </div>
+    </div>
+    
+    <div class="flex gap-2.5 justify-end">
+      <button onclick="rejectAllCookies()" class="px-3.5 py-2 text-xs font-bold text-slate-400 hover:text-white transition-colors">
+        Reject Optional
+      </button>
+      <button onclick="showCookiePreferences()" class="px-3.5 py-2 text-xs font-bold text-slate-300 hover:text-brand-400 transition-colors">
+        Customize
+      </button>
+      <button onclick="acceptAllCookies()" class="px-5 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-slate-950 font-extrabold text-xs transition-all shadow-lg active:scale-95">
+        Accept All
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= COOKIE CUSTOMIZATION MODAL ================= -->
+  <div id="cookie-modal" class="fixed inset-0 z-55 overflow-hidden hidden" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 overflow-hidden flex items-center justify-center p-4">
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onclick="closeCookiePreferences()"></div>
+
+      <div class="relative bg-white max-w-md w-full rounded-2xl p-6 shadow-2xl border border-slate-200 space-y-5">
+        <div class="flex justify-between items-center pb-3 border-b border-slate-100">
+          <h3 class="font-heading font-black text-slate-900 text-lg flex items-center gap-2">
+            <span>🍪 Cookie Preferences</span>
+          </h3>
+          <button onclick="closeCookiePreferences()" class="text-slate-400 hover:text-slate-600">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="space-y-4 max-h-96 overflow-y-auto pr-1">
+          <p class="text-xs text-slate-500">Configure your data permissions below. Some tracking scripts might influence the behavioral recommendations seen across other sites.</p>
+
+          <!-- Cookie Type 1 -->
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-xs text-slate-900">1. Essential Security Cookies</span>
+              <span class="text-[10px] font-bold text-brand-600 uppercase bg-brand-50 px-2 py-0.5 rounded-md border border-brand-200">REQUIRED</span>
+            </div>
+            <p class="text-[11px] text-slate-500">Allows storing your selected blood packages in the booking flow and keeps session locks secure. Cannot be disabled.</p>
+          </div>
+
+          <!-- Cookie Type 2 -->
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-xs text-slate-900">2. Performance & Analytics Cookies</span>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="cookie-toggle-analytics" checked class="sr-only peer">
+                <div class="w-8 h-4 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-brand-600"></div>
+              </label>
+            </div>
+            <p class="text-[11px] text-slate-500">Measures aggregate loading speeds and reports server diagnostics so we can make the laboratory cloud faster.</p>
+          </div>
+
+          <!-- Cookie Type 3 -->
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-xs text-slate-900">3. Marketing & Remarketing Cookies</span>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="cookie-toggle-marketing" class="sr-only peer">
+                <div class="w-8 h-4 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-brand-600"></div>
+              </label>
+            </div>
+            <p class="text-[11px] text-slate-500">Allows displaying specific healthcare discounts and seasonal health screening promotions on social networks.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex justify-end gap-2">
+          <button onclick="closeCookiePreferences()" class="px-4 py-2 text-xs font-bold text-slate-500 hover:text-slate-800">
+            Cancel
+          </button>
+          <button onclick="saveCustomCookies()" class="px-5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-all shadow-md active:scale-95">
+            Save Preferences
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= NOTIFICATION BANNER / TOAST SYSTEM ================= -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-slate-800 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0"></div>
+    <span class="text-xs font-semibold text-slate-200" id="toast-message">Item added to your cart</span>
+  </div>
+
+
+  <!-- ================= SCRIPTS & SYSTEM INTERACTION LOGIC ================= -->
+  <script>
+    // --- DATABASE OF MEDICAL TESTS ---
+    const TEST_DATABASE = [
+      {
+        id: 't1',
+        name: 'Complete Blood Count (CBC)',
+        category: 'popular',
+        price: 1200,
+        tat: '6 Hours',
+        vessels: 'EDTA Whole Blood',
+        desc: 'Evaluates overall health; detects anemia, leukemia, and baseline immune status.',
+        parameters: 18,
+        fasting: 'Not Required'
+      },
+      {
+        id: 't2',
+        name: 'Lipid Profile (Cardiovascular Risk)',
+        category: 'cardio',
+        price: 2500,
+        tat: '8 Hours',
+        vessels: 'Serum Gel tube',
+        desc: 'Measures LDL, HDL, Total Cholesterol, and Triglycerides for cardiac fitness evaluation.',
+        parameters: 5,
+        fasting: 'Required (10-12 hours)'
+      },
+      {
+        id: 't3',
+        name: 'Diabetes Wellness Screening (HbA1c + FBS)',
+        category: 'wellness',
+        price: 1800,
+        tat: '4 Hours',
+        vessels: 'Fluoride plasma & EDTA',
+        desc: 'Calculates Glycated Hemoglobin & Fasting Blood Sugar for precise glycemic trends.',
+        parameters: 2,
+        fasting: 'Required (10-12 hours)'
+      },
+      {
+        id: 't4',
+        name: 'Comprehensive Metabolic Panel (CMP-14)',
+        category: 'wellness',
+        price: 4500,
+        tat: '12 Hours',
+        vessels: 'Serum Gel Tube',
+        desc: 'Assesses liver proteins, kidney enzymes, fluid status, and general endocrine balance.',
+        parameters: 14,
+        fasting: 'Required (10-12 hours)'
+      },
+      {
+        id: 't5',
+        name: 'Liver Function Test (LFT)',
+        category: 'cardio',
+        price: 1500,
+        tat: '8 Hours',
+        vessels: 'Serum Gel Tube',
+        desc: 'Checks Bilirubin, SGOT, SGPT, Alkaline Phosphatase, and Albumin ratios.',
+        parameters: 9,
+        fasting: 'Not Required'
+      },
+      {
+        id: 't6',
+        name: 'Thyroid Profile (T3, T4, Ultra TSH)',
+        category: 'popular',
+        price: 2800,
+        tat: '6 Hours',
+        vessels: 'Serum Gel Tube',
+        desc: 'Evaluates thyroid glands; vital for screening metabolism changes and fatigue.',
+        parameters: 3,
+        fasting: 'Not Required'
+      },
+      {
+        id: 't7',
+        name: 'Kidney Renal Function Test (KFT)',
+        category: 'popular',
+        price: 1600,
+        tat: '8 Hours',
+        vessels: 'Serum, Urine',
+        desc: 'Assesses filtration status via Urea, Creatinine, Uric Acid, and Electrolytes.',
+        parameters: 7,
+        fasting: 'Not Required'
+      },
+      {
+        id: 't8',
+        name: 'Full Body Comprehensive Wellness Package',
+        category: 'wellness',
+        price: 8500,
+        tat: '12 Hours',
+        vessels: 'Serum & Whole Blood',
+        desc: '78 essential parameters analyzed: CBC, CMP, Lipids, Thyroid, Vitamins D/B12.',
+        parameters: 78,
+        fasting: 'Required (12 hours)'
+      }
+    ];
+
+    // --- MOCK SAMPLE REPORT DATABASE ---
+    const MEDICAL_REPORTS_MOCK = {
+      'DH-2026': {
+        patient: 'Arthur Pendragon',
+        age: 39,
+        gender: 'Male',
+        collectDate: '2026-06-10 07:15 AM',
+        remarks: '"Analyzed blood metrics fall mostly within standard limits. Marginally high Blood Urea Nitrogen indicates active protein diet structures. Maintain hydration levels."',
+        parameters: [
+          { name: 'Sodium (Serum)', value: 141, low: 135, high: 145, unit: 'mEq/L' },
+          { name: 'Potassium (Serum)', value: 4.2, low: 3.5, high: 5.1, unit: 'mEq/L' },
+          { name: 'Chloride (Serum)', value: 102, low: 96, high: 106, unit: 'mEq/L' },
+          { name: 'Glucose (Fasting)', value: 94, low: 70, high: 99, unit: 'mg/dL' },
+          { name: 'BUN (Blood Urea Nitrogen)', value: 19, low: 7, high: 20, unit: 'mg/dL' },
+          { name: 'Creatinine (Serum)', value: 1.05, low: 0.60, high: 1.30, unit: 'mg/dL' },
+          { name: 'Calcium (Serum)', value: 9.6, low: 8.5, high: 10.2, unit: 'mg/dL' },
+          { name: 'Alkaline Phosphatase', value: 72, low: 44, high: 147, unit: 'IU/L' },
+          { name: 'ALT (SGPT)', value: 31, low: 7, high: 56, unit: 'IU/L' },
+          { name: 'AST (SGOT)', value: 24, low: 8, high: 48, unit: 'IU/L' },
+        ]
+      }
+    };
+
+    // --- APP STATE ---
+    let CART = [];
+    let activeCategory = 'all';
+
+    // --- INIT APP ON WINDOW LOAD ---
+    window.onload = function() {
+      renderTests();
+      updateCartUI();
+
+      // Trigger cookie banner sliding up after a short delay
+      setTimeout(() => {
+        const banner = document.getElementById('cookie-banner');
+        banner.classList.remove('translate-y-20', 'opacity-0');
+      }, 1500);
+    };
+
+    // --- RENDER TEST CARDS ---
+    function renderTests() {
+      const grid = document.getElementById('tests-grid');
+      grid.innerHTML = '';
+
+      const query = document.getElementById('test-search-input').value.toLowerCase();
+
+      const filtered = TEST_DATABASE.filter(test => {
+        const matchesCat = activeCategory === 'all' || test.category === activeCategory;
+        const matchesSearch = test.name.toLowerCase().includes(query) || test.desc.toLowerCase().includes(query);
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 bg-white border border-slate-200 rounded-2xl">
+            <span class="text-4xl block mb-2">🔍</span>
+            <p class="font-bold text-sm">No matching clinical diagnostic tests found.</p>
+            <p class="text-xs">Try searching for other parameters or reset the category filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(test => {
+        const isAdded = CART.some(item => item.id === test.id);
+        const cardHtml = `
+          <div class="bg-white border border-slate-200 hover:border-brand-500/50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-start gap-3">
+                <span class="text-[10px] font-bold tracking-widest uppercase bg-slate-100 px-2 py-0.5 rounded-md text-slate-500">${test.category === 'wellness' ? 'Wellness Pack' : 'Pathology Test'}</span>
+                <span class="text-xs font-semibold text-slate-400">⏱️ TAT: ${test.tat}</span>
+              </div>
+              
+              <h3 class="font-heading font-extrabold text-slate-900 leading-snug group-hover:text-brand-600 transition-all">${test.name}</h3>
+              <p class="text-slate-500 text-xs line-clamp-2">${test.desc}</p>
+              
+              <div class="grid grid-cols-2 gap-2 text-[11px] pt-1 text-slate-500 font-medium border-t border-slate-50">
+                <p>🧪 Params analyzed: <strong class="text-slate-900">${test.parameters}</strong></p>
+                <p>🩸 Fasting: <strong class="text-slate-900">${test.fasting}</strong></p>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-5 border-t border-slate-100 flex justify-between items-center">
+              <div>
+                <span class="text-slate-400 text-[10px] font-semibold block">Total Cost</span>
+                <span class="text-2xl font-black text-slate-900 font-heading">Rs. ${test.price.toLocaleString()}</span>
+              </div>
+              <button onclick="toggleCartItem('${test.id}')" class="px-4 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-1.5 ${
+                isAdded 
+                  ? 'bg-slate-100 text-slate-800 hover:bg-slate-200' 
+                  : 'bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-600/10'
+              }">
+                ${isAdded ? 'Remove' : '+ Book Test'}
+              </button>
+            </div>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', cardHtml);
+      });
+    }
+
+    // --- FILTER & CATEGORY CHANGE ---
+    function changeCategory(cat) {
+      activeCategory = cat;
+      const buttons = ['all', 'wellness', 'popular', 'cardio'];
+      buttons.forEach(b => {
+        const el = document.getElementById(`btn-cat-${b}`);
+        if (b === cat) {
+          el.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white transition-all shadow-sm';
+        } else {
+          el.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all';
+        }
+      });
+      renderTests();
+    }
+
+    function handleSearchAndFilter() {
+      renderTests();
+    }
+
+    // --- CART LOGIC ---
+    function toggleCartItem(id) {
+      const idx = CART.findIndex(item => item.id === id);
+      if (idx > -1) {
+        CART.splice(idx, 1);
+        showToast("Pathology test removed from cart");
+      } else {
+        const item = TEST_DATABASE.find(t => t.id === id);
+        CART.push(item);
+        showToast(`"${item.name}" added to appointment cart`);
+      }
+      updateCartUI();
+      renderTests();
+    }
+
+    function addStarterPack() {
+      const cbc = TEST_DATABASE.find(t => t.id === 't1');
+      const wellness = TEST_DATABASE.find(t => t.id === 't3');
+      if (!CART.some(i => i.id === cbc.id)) CART.push(cbc);
+      if (!CART.some(i => i.id === wellness.id)) CART.push(wellness);
+      showToast("Fast-Pack added to checkout");
+      updateCartUI();
+      renderTests();
+    }
+
+    function addFeaturedPackage() {
+      const fullBody = TEST_DATABASE.find(t => t.id === 't8');
+      if (!CART.some(i => i.id === fullBody.id)) {
+        CART.push(fullBody);
+        showToast("Added: Full Body Comprehensive Wellness Package!");
+        updateCartUI();
+        renderTests();
+      }
+      document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function updateCartUI() {
+      const count = CART.length;
+      const badge = document.getElementById('cart-badge');
+      if (count > 0) {
+        badge.innerText = count;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      // Render items inside wizard (Step 1)
+      const wizardItemsContainer = document.getElementById('wizard-cart-items');
+      const quickStartBox = document.getElementById('quick-start-pack');
+      const nextBtn = document.getElementById('step1-next-btn');
+      
+      let subtotal = 0;
+      
+      if (count === 0) {
+        wizardItemsContainer.innerHTML = `
+          <div class="py-12 text-center text-slate-400 text-sm italic">
+            No tests selected yet. Please add tests from the Directory above or select the fast-track starter pack below.
+          </div>
+        `;
+        quickStartBox.classList.remove('hidden');
+        nextBtn.disabled = true;
+        nextBtn.className = "px-6 py-3 rounded-xl bg-slate-200 text-slate-400 cursor-not-allowed font-bold text-sm transition-all shadow-md";
+      } else {
+        wizardItemsContainer.innerHTML = '';
+        quickStartBox.classList.add('hidden');
+        nextBtn.disabled = false;
+        nextBtn.className = "px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all shadow-md shadow-brand-600/10 cursor-pointer active:scale-95";
+
+        CART.forEach(item => {
+          subtotal += item.price;
+          const row = `
+            <div class="py-3 flex justify-between items-center gap-4">
+              <div class="space-y-0.5">
+                <h4 class="font-bold text-xs text-slate-900">${item.name}</h4>
+                <p class="text-[10px] text-slate-500">TAT: ${item.tat} | Parameter Count: ${item.parameters}</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-bold text-sm text-slate-900">Rs. ${item.price.toLocaleString()}</span>
+                <button onclick="toggleCartItem('${item.id}')" class="text-slate-400 hover:text-red-500 font-bold text-xs">✕</button>
+              </div>
+            </div>
+          `;
+          wizardItemsContainer.insertAdjacentHTML('beforeend', row);
+        });
+      }
+
+      // Summary
+      document.getElementById('summary-subtotal').innerText = `Rs. ${subtotal.toLocaleString()}`;
+      document.getElementById('summary-total').innerText = `Rs. ${subtotal.toLocaleString()}`;
+      document.getElementById('drawer-subtotal').innerText = `Rs. ${subtotal.toLocaleString()}`;
+
+      // Update Cart Slide Drawer
+      const drawerList = document.getElementById('cart-drawer-list');
+      drawerList.innerHTML = '';
+      if (count === 0) {
+        drawerList.innerHTML = `
+          <div class="py-12 text-center text-slate-400 text-xs italic">
+            Your clinical booking cart is empty.
+          </div>
+        `;
+      } else {
+        CART.forEach(item => {
+          const li = `
+            <li class="flex py-6">
+              <div class="flex-1 ml-4 flex flex-col justify-between">
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-900">
+                    <h3>${item.name}</h3>
+                    <p class="ml-4">Rs. ${item.price.toLocaleString()}</p>
+                  </div>
+                  <p class="mt-1 text-[10px] text-slate-500">TAT: ${item.tat}</p>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                  <span class="text-[10px] bg-slate-50 px-2 py-0.5 rounded border border-slate-100">${item.fasting}</span>
+                  <button onclick="toggleCartItem('${item.id}')" type="button" class="font-medium text-brand-600 hover:text-brand-500">Remove</button>
+                </div>
+              </div>
+            </li>
+          `;
+          drawerList.insertAdjacentHTML('beforeend', li);
+        });
+      }
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      if (open) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    // --- WIZARD STEPS MANAGEMENT ---
+    function toggleMethodUI(method) {
+      const addressBlock = document.getElementById('address-block');
+      const homeLabel = document.getElementById('method-home-label');
+      const labLabel = document.getElementById('method-lab-label');
+
+      if (method === 'Home') {
+        addressBlock.classList.remove('hidden');
+        homeLabel.className = 'border-2 border-brand-500 bg-brand-50/20 p-4 rounded-xl flex items-center gap-3 cursor-pointer transition-all';
+        labLabel.className = 'border border-slate-200 p-4 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 transition-all';
+      } else {
+        addressBlock.classList.add('hidden');
+        labLabel.className = 'border-2 border-brand-500 bg-brand-50/20 p-4 rounded-xl flex items-center gap-3 cursor-pointer transition-all';
+        homeLabel.className = 'border border-slate-200 p-4 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 transition-all';
+      }
+    }
+
+    function wizardNextToStep2() {
+      document.getElementById('wizard-step1').classList.add('hidden');
+      document.getElementById('wizard-step2').classList.remove('hidden');
+
+      document.getElementById('step2-indicator').classList.remove('opacity-40');
+      document.getElementById('step2-indicator').children[0].className = 'w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-extrabold shadow-md shadow-brand-500/10';
+      
+      document.getElementById('wizard-status-bar').innerText = "Patient Details";
+    }
+
+    function wizardBackToStep1() {
+      document.getElementById('wizard-step2').classList.add('hidden');
+      document.getElementById('wizard-step1').classList.remove('hidden');
+
+      document.getElementById('step2-indicator').classList.add('opacity-40');
+      document.getElementById('step2-indicator').children[0].className = 'w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-extrabold';
+      
+      document.getElementById('wizard-status-bar').innerText = "Review";
+    }
+
+    function wizardNextToStep3() {
+      // Basic verification of inputs
+      const name = document.getElementById('patient-name').value.trim();
+      const phone = document.getElementById('patient-phone').value.trim();
+      const age = document.getElementById('patient-age').value.trim();
+      const gender = document.getElementById('patient-gender').value;
+
+      if (!name || !phone || !age || !gender) {
+        showToast("⚠️ Please complete all basic patient details fields");
+        return;
+      }
+
+      document.getElementById('wizard-step2').classList.add('hidden');
+      document.getElementById('wizard-step3').classList.remove('hidden');
+
+      document.getElementById('step3-indicator').classList.remove('opacity-40');
+      document.getElementById('step3-indicator').children[0].className = 'w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-extrabold shadow-md shadow-brand-500/10';
+      
+      document.getElementById('wizard-status-bar').innerText = "Schedule Slot";
+    }
+
+    function wizardBackToStep2() {
+      document.getElementById('wizard-step3').classList.add('hidden');
+      document.getElementById('wizard-step2').classList.remove('hidden');
+
+      document.getElementById('step3-indicator').classList.add('opacity-40');
+      document.getElementById('step3-indicator').children[0].className = 'w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-extrabold';
+      
+      document.getElementById('wizard-status-bar').innerText = "Patient Details";
+    }
+
+    function submitBooking() {
+      const date = document.getElementById('booking-date').value;
+      const slot = document.getElementById('booking-slot').value;
+
+      if (!date || !slot) {
+        showToast("⚠️ Please select a date and reference time slot");
+        return;
+      }
+
+      // Generate mock patient report into database using the name they just put in
+      const patientName = document.getElementById('patient-name').value;
+      const patientAge = document.getElementById('patient-age').value;
+      const patientGender = document.getElementById('patient-gender').value;
+      const customId = "DH-" + Math.floor(1000 + Math.random() * 9000);
+
+      MEDICAL_REPORTS_MOCK[customId] = {
+        patient: patientName,
+        age: parseInt(patientAge),
+        gender: patientGender,
+        collectDate: date + ' ' + slot.split(' ')[0] + ' ' + slot.split(' ')[1],
+        remarks: '"Sample analyzed immediately inside vacuum biological chambers. Metabolic parameters normal. High mineral indexes matching patient age profile."',
+        parameters: CART.map((test, index) => {
+          return {
+            name: `${test.name} Target Factor`,
+            value: (Math.random() * 80 + 30).toFixed(1),
+            low: 35,
+            high: 95,
+            unit: 'U/L'
+          };
+        })
+      };
+
+      // Reset Form and State
+      CART = [];
+      updateCartUI();
+      renderTests();
+
+      // Show customized feedback message
+      showToast(`🎉 Success! Booking confirmed. Track report ID: ${customId}`);
+
+      // Scroll to report panel and preset ID
+      document.getElementById('report-portal').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('portal-input').value = customId;
+
+      // Restore first wizard steps
+      document.getElementById('wizard-step3').classList.add('hidden');
+      document.getElementById('wizard-step1').classList.remove('hidden');
+      document.getElementById('step2-indicator').classList.add('opacity-40');
+      document.getElementById('step3-indicator').classList.add('opacity-40');
+      document.getElementById('step2-indicator').children[0].className = 'w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-extrabold';
+      document.getElementById('step3-indicator').children[0].className = 'w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-extrabold';
+      document.getElementById('wizard-status-bar').innerText = "Review";
+
+      // Clear fields
+      document.getElementById('patient-name').value = '';
+      document.getElementById('patient-phone').value = '';
+      document.getElementById('patient-age').value = '';
+      document.getElementById('patient-gender').value = '';
+      document.getElementById('booking-date').value = '';
+      document.getElementById('booking-slot').value = '';
+    }
+
+    // --- SECURE REPORT RETRIEVAL PORTAL ---
+    function handleQuickReportSearch() {
+      const val = document.getElementById('hero-portal-input').value.trim();
+      if (!val) {
+        document.getElementById('hero-portal-error').innerText = "Please enter a tracking reference ID";
+        document.getElementById('hero-portal-error').classList.remove('hidden');
+        return;
+      }
+      document.getElementById('hero-portal-error').classList.add('hidden');
+      document.getElementById('portal-input').value = val;
+      document.getElementById('report-portal').scrollIntoView({ behavior: 'smooth' });
+      searchReport();
+    }
+
+    function searchReport() {
+      const input = document.getElementById('portal-input').value.trim().toUpperCase();
+      const placeholder = document.getElementById('report-placeholder');
+      const loading = document.getElementById('report-loading');
+      const content = document.getElementById('report-content');
+
+      if (!input) {
+        showToast("⚠️ Please input a valid Sample ID");
+        return;
+      }
+
+      placeholder.classList.add('hidden');
+      content.classList.add('hidden');
+      loading.classList.remove('hidden');
+
+      setTimeout(() => {
+        loading.classList.add('hidden');
+        const report = MEDICAL_REPORTS_MOCK[input];
+        
+        if (report) {
+          // Update visual mock report details
+          document.getElementById('rep-patient-name').innerText = report.patient;
+          document.getElementById('rep-patient-meta').innerText = `${report.age} Years / ${report.gender}`;
+          document.getElementById('rep-sample-id').innerText = input;
+          document.getElementById('rep-collect-date').innerText = report.collectDate;
+          document.getElementById('rep-pathologist-remarks').innerText = report.remarks;
+
+          // Render parameter rows
+          const tbody = document.getElementById('report-tbody');
+          tbody.innerHTML = '';
+          
+          report.parameters.forEach(param => {
+            const isHigh = parseFloat(param.value) > param.high;
+            const isLow = parseFloat(param.value) < param.low;
+            
+            let statusText = 'Normal';
+            let statusClass = 'text-emerald-600 bg-emerald-50';
+            if (isHigh) {
+              statusText = 'HIGH 📈';
+              statusClass = 'text-red-600 bg-red-50 font-bold';
+            } else if (isLow) {
+              statusText = 'LOW 📉';
+              statusClass = 'text-amber-600 bg-amber-50 font-bold';
+            }
+
+            const row = `
+              <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
+                <td class="py-3 font-semibold text-slate-800">${param.name}</td>
+                <td class="py-3 font-bold ${isHigh || isLow ? 'text-red-600' : 'text-slate-900'}">${param.value}</td>
+                <td class="py-3 text-slate-500">${param.low} - ${param.high}</td>
+                <td class="py-3 text-slate-500">${param.unit}</td>
+                <td class="py-3 text-right">
+                  <span class="inline-block text-[10px] px-2.5 py-1 rounded-full border border-slate-100 ${statusClass}">${statusText}</span>
+                </td>
+              </tr>
+            `;
+            tbody.insertAdjacentHTML('beforeend', row);
+          });
+
+          content.classList.remove('hidden');
+          showToast("✅ Secure diagnostic report verified and loaded!");
+        } else {
+          placeholder.classList.remove('hidden');
+          showToast("❌ Report reference not found. Did you use 'DH-2026'?");
+        }
+      }, 1500); // simulated load time
+    }
+
+    function triggerMockDownload() {
+      showToast("💾 PDF report compilation initiated. Downloading file: DH-Report-Signed.pdf");
+    }
+
+    // --- COOKIE BANNER & CUSTOMIZATION SCRIPTS ---
+    function acceptAllCookies() {
+      closeCookieBanner();
+      showToast("🍪 Cookie consent preferences updated: Accepted All");
+    }
+
+    function rejectAllCookies() {
+      closeCookieBanner();
+      showToast("🍪 Cookie consent preferences updated: Essential Cookies only");
+    }
+
+    function saveCustomCookies() {
+      const analyticsOn = document.getElementById('cookie-toggle-analytics').checked;
+      const marketingOn = document.getElementById('cookie-toggle-marketing').checked;
+      
+      closeCookiePreferences();
+      closeCookieBanner();
+
+      let msg = "Essential Cookies";
+      if (analyticsOn) msg += ", Performance Analytics";
+      if (marketingOn) msg += ", Target Marketing";
+      
+      showToast(`🍪 Cookie preferences updated: Saved (${msg})`);
+    }
+
+    function closeCookieBanner() {
+      const banner = document.getElementById('cookie-banner');
+      banner.classList.add('translate-y-20', 'opacity-0');
+    }
+
+    function showCookiePreferences() {
+      document.getElementById('cookie-modal').classList.remove('hidden');
+    }
+
+    function closeCookiePreferences() {
+      document.getElementById('cookie-modal').classList.add('hidden');
+    }
+
+    // --- TOAST NOTIFICATIONS ---
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = msg;
+      
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // --- FAQ ACCORDION ---
+    function toggleFaq(index) {
+      const ans = document.getElementById(`faq-ans-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.innerText = '−';
+      } else {
+        ans.classList.add('hidden');
+        icon.innerText = '+';
+      }
+    }
+  </script>
+</body>
+</html>
